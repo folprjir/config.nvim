@@ -1,5 +1,6 @@
 -- jiri These are my keymaps.
 -- Include this file to main init.lua
+--
 
 local set = vim.keymap.set
 
@@ -37,11 +38,12 @@ set("n", "<leader>k", "<cmd>lnext<CR>zz")
 set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
 set("n", "<leader>s", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
-set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+-- set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
 set("n", "<leader>vpp", "<cmd>e ~/.dotfiles/nvim/.config/nvim/lua/theprimeagen/packer.lua<CR>");
 set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 
-set("n", "<leader><leader>", function()
-    vim.cmd("so")
-end)
+-- set("n", "<leader><leader>", function()
+--     vim.cmd("so")
+-- end)
+

@@ -24,6 +24,14 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup({
   spec = {
+	
+    {
+      "rebelot/kanagawa.nvim",
+      config = function()
+        vim.cmd.colorscheme("kanagawa-wave")
+      end,
+    },
+
     -- import your plugins
     { import = "plugins" },
   },
@@ -51,3 +59,5 @@ require("lazy").setup({
     },
   },
 })
+
+
