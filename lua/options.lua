@@ -36,7 +36,7 @@ vim.opt.colorcolumn = "80"
 
 -- options from kickstart -------------------------------------------
 
-vim.g.have_nerd_font = false 
+vim.g.have_nerd_font = false
 vim.opt.mouse = 'a'
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
