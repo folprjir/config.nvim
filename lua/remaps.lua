@@ -20,20 +20,20 @@ set("n", "N", "Nzzzv")
 set("x", "<leader>p", [["_dP]])
 
 -- next greatest remap ever : asbjornHaland
-set({"n", "v"}, "<leader>y", [["+y]])
+set({ "n", "v" }, "<leader>y", [["+y]])
 set("n", "<leader>Y", [["+Y]])
 
-set({"n", "v"}, "<leader>d", [["_d]])
+set({ "n", "v" }, "<leader>d", [["_d]])
 
 -- This is going to get me cancelled
 set("i", "<C-c>", "<Esc>")
 
 set("n", "Q", "<nop>")
 set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
-set("n", "<leader>f", vim.lsp.buf.format)
+-- set("n", "<leader>f", vim.lsp.buf.format)
 
-set("n", "<C-k>", "<cmd>cnext<CR>zz")
-set("n", "<C-j>", "<cmd>cprev<CR>zz")
+set("n", "<M-j>", "<cmd>cnext<CR>zz")
+set("n", "<M-k>", "<cmd>cprev<CR>zz")
 set("n", "<leader>k", "<cmd>lnext<CR>zz")
 set("n", "<leader>j", "<cmd>lprev<CR>zz")
 
@@ -46,4 +46,10 @@ set("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<CR>");
 -- set("n", "<leader><leader>", function()
 --     vim.cmd("so")
 -- end)
-
+--
+set("n", "<space>st", function()
+  vim.cmd.vnew()
+  vim.cmd.term()
+  vim.cmd.wincmd("J")
+  vim.api.nvim_win_set_height(0, 15)
+end)
