@@ -19,7 +19,7 @@ return {
       require('telescope').setup {
 	pickers = {
 	  find_files = {
-	    theme = "ivy"
+	    -- theme = "ivy" -- changes appearance of telescope popup
 	  }
 	},
 	extensions = {
