@@ -16,7 +16,7 @@ vim.opt.smartindent = true -- smart autoindenting when starting new line
 
 vim.opt.wrap = false -- disables line wrapping by default
 
-vim.opt.swapfile = false 
+vim.opt.swapfile = false
 vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.undofile = true
@@ -56,20 +56,3 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.opt.clipboard = "unnamedplus" -- synchronizes neovims and systems clipboards
 vim.opt.virtualedit = "block" -- makes working in block mode nicer
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- ahoj

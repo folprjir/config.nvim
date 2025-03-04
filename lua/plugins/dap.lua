@@ -23,7 +23,10 @@ return {
 	  type = 'nlua',
 	  request = 'attach',
 	  name = "Attach to running Neovim instance",
-	}
+	  on_init = function()
+	  vim.opt.swapfile = false
+	end,
+	},
       }
 
       dap.adapters["local-lua"] = {
@@ -69,6 +72,8 @@ return {
       vim.keymap.set('n', '<leader>dl', function()
 	require"osv".launch({port = 8086})
       end, { noremap = true })
+
+      vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap=true})
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()
