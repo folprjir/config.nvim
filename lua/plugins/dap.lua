@@ -19,39 +19,39 @@ return {
       require("nvim-dap-virtual-text").setup()
 
       dap.configurations.lua = {
-	{
-	  type = 'nlua',
-	  request = 'attach',
-	  name = "Attach to running Neovim instance",
-	  on_init = function()
-	  vim.opt.swapfile = false
-	end,
-	},
+        {
+          type = 'nlua',
+          request = 'attach',
+          name = "Attach to running Neovim instance",
+          on_init = function()
+            vim.opt.swapfile = false
+          end,
+        },
       }
 
       dap.adapters["local-lua"] = {
-	type = "executable",
-	command = "node",
-	args = {
-	  -- "/absolute/path/to/local-lua-debugger-vscode/extension/debugAdapter.js"
-	  "/home/jiri/Plocha/lua/debugger/local-lua-debugger-vscode/extension/debugAdapter.js",
-	},
-	enrich_config = function(config, on_config)
-	  if not config["extensionPath"] then
-	    local c = vim.deepcopy(config)
-	    -- 💀 If this is missing or wrong you'll see 
-	    -- "module 'lldebugger' not found" errors in the dap-repl when trying to launch a debug session
-	    -- c.extensionPath = "/absolute/path/to/local-lua-debugger-vscode/"
-	    c.extensionPath = "/home/jiri/Plocha/lua/debugger/local-lua-debugger-vscode/"
-	    on_config(c)
-	  else
-	    on_config(config)
-	  end
-	end,
+        type = "executable",
+        command = "node",
+        args = {
+          -- "/absolute/path/to/local-lua-debugger-vscode/extension/debugAdapter.js"
+          "/home/jiri/Plocha/lua/debugger/local-lua-debugger-vscode/extension/debugAdapter.js",
+        },
+        enrich_config = function(config, on_config)
+          if not config["extensionPath"] then
+            local c = vim.deepcopy(config)
+            -- 💀 If this is missing or wrong you'll see
+            -- "module 'lldebugger' not found" errors in the dap-repl when trying to launch a debug session
+            -- c.extensionPath = "/absolute/path/to/local-lua-debugger-vscode/"
+            c.extensionPath = "/home/jiri/Plocha/lua/debugger/local-lua-debugger-vscode/"
+            on_config(c)
+          else
+            on_config(config)
+          end
+        end,
       }
 
       dap.adapters.nlua = function(callback, config)
-	callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
+        callback({ type = 'server', host = config.host or "127.0.0.1", port = config.port or 8086 })
       end
 
       vim.keymap.set("n", "<space>b", dap.toggle_breakpoint)
@@ -70,10 +70,10 @@ return {
       vim.keymap.set("n", "<F12>", dap.restart)
 
       vim.keymap.set('n', '<leader>dl', function()
-	require"osv".launch({port = 8086})
+        require "osv".launch({ port = 8086 })
       end, { noremap = true })
 
-      vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", {noremap=true})
+      vim.keymap.set("n", "<leader>dr", ":lua require('dapui').open({reset = true})<CR>", { noremap = true })
 
       dap.listeners.before.attach.dapui_config = function()
         ui.open()

@@ -4,17 +4,17 @@
 -- options from primeagen -----------------------------------------------
 -- vim.opt.guicursor = "" -- thick cursor
 
-vim.opt.number = true -- line numbers
+vim.opt.number = true          -- line numbers
 vim.opt.relativenumber = false -- relative line numbers
 
-vim.opt.tabstop = 4 -- number of spaces created by pressing tab
-vim.opt.softtabstop = 4 -- 
-vim.opt.shiftwidth = 4 -- automatic indentation size in spaces
-vim.opt.expandtab = true -- changes tabs to spaces (on save)
+vim.opt.tabstop = 4            -- number of spaces created by pressing tab
+vim.opt.softtabstop = 4        --
+vim.opt.shiftwidth = 4         -- automatic indentation size in spaces
+vim.opt.expandtab = true       -- changes tabs to spaces (on save)
 
-vim.opt.smartindent = true -- smart autoindenting when starting new line
+vim.opt.smartindent = true     -- smart autoindenting when starting new line
 
-vim.opt.wrap = false -- disables line wrapping by default
+vim.opt.wrap = false           -- disables line wrapping by default
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -31,7 +31,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
-
 vim.opt.colorcolumn = "80"
 
 -- options from kickstart -------------------------------------------
@@ -44,7 +43,7 @@ vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 250
 vim.opt.timeoutlen = 300
 vim.opt.splitright = true -- new windows open at the bottom
-vim.opt.splitbelow = true -- new splits open on the right side 
+vim.opt.splitbelow = true -- new splits open on the right side
 vim.opt.list = true
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 vim.opt.inccommand = 'split' -- show macro preview in a split
@@ -55,4 +54,4 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- options from Vhyrro
 
 vim.opt.clipboard = "unnamedplus" -- synchronizes neovims and systems clipboards
-vim.opt.virtualedit = "block" -- makes working in block mode nicer
+vim.opt.virtualedit = "block"     -- makes working in block mode nicer
