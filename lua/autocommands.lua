@@ -13,5 +13,5 @@ return {
       vim.opt.number = false
       vim.opt.relativenumber = false
     end,
-  })
+  }),
 }
