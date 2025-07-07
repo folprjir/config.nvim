@@ -55,3 +55,6 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.opt.clipboard = "unnamedplus" -- synchronizes neovims and systems clipboards
 vim.opt.virtualedit = "block"     -- makes working in block mode nicer
+
+vim.opt.spelllang = "en_us"
+vim.opt.spell = true
