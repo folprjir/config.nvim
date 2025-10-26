@@ -1,11 +1,16 @@
 return {
   {
     "williamboman/mason.nvim",
-    -- temporary pinned version, mason 2.0 is breaking stuff at the moment
-    -- remove (line version = "1.11.0",) int the future
-    version = "1.11.0",
     lazy = false,
-    opts = {},
+    opts = {
+      ui = {
+        icons = {
+            package_installed = "✓",
+            package_pending = "➜",
+            package_uninstalled = "✗"
+        }
+      }
+    },
     config = function()
       require("mason").setup()
     end,
@@ -37,7 +42,7 @@ return {
     end,
 
     config = function()
-      local lsp_defaults = require('lspconfig').util.default_config
+      local lsp_defaults = require("lspconfig").util.default_config
 
       -- Add cmp_nvim_lsp capabilities settings to lspconfig
       -- This should be executed before you configure any language server
@@ -48,8 +53,14 @@ return {
       )
 
       vim.keymap.set("n", "<Leader>e", vim.diagnostic.open_float)
-      vim.keymap.set("n", "[d", vim.diagnostic.goto_prev)
-      vim.keymap.set("n", "]d", vim.diagnostic.goto_prev)
+      vim.keymap.set("n", "[d",
+        function() vim.diagnostic.jump({ count = -1 }) end,
+        { desc = "Go to previous diagnostic" }
+      )
+      vim.keymap.set("n", "]d", function()
+        vim.diagnostic.jump({ count = 1 }) end,
+        { desc = "Go to next diagnostic" }
+      )
       vim.keymap.set("n", "<Leader>q", vim.diagnostic.setloclist)
 
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -84,17 +95,19 @@ return {
 
   {
     "williamboman/mason-lspconfig.nvim",
-    -- temporary pinned version, mason 2.0 is breaking stuff at the moment
-    -- remove (line version = "1.32.0",) int the future
-    version = "1.32.0",
-    dependencies = { "mason.nvim" },
-    config = function()
-      require("mason-lspconfig").setup()
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require("lspconfig")[server_name].setup({})
-        end,
-      })
-    end,
+    dependencies = { "mason.nvim", "neovim/nvim-lspconfig" },
+    opts = {
+      ensure_installed = {
+        "ts_ls",
+        "html",
+        "cssls",
+        "tailwindcss",
+        "lua_ls",
+        "graphql",
+        "emmet_ls",
+        "pyright",
+        "eslint",
+      }
+    }
   },
 }
