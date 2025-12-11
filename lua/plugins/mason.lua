@@ -107,6 +107,7 @@ return {
         "emmet_ls",
         "pyright",
         "eslint",
+        "ruff",
       }
     }
   },

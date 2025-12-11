@@ -18,8 +18,8 @@ return {
         },
       })
 
-      vim.keymap.set("n", "<leader>q", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
-      vim.keymap.set("n", "<leader>Q", ":NvimTreeFocus<CR>", { desc = "Focus the File Explorer" })
+      vim.keymap.set("n", "<leader>ft", ":NvimTreeToggle<CR>", { desc = "Toggle File Explorer" })
+      vim.keymap.set("n", "<leader>ff", ":NvimTreeFocus<CR>", { desc = "Focus the File Explorer" })
     end,
   },
 }
